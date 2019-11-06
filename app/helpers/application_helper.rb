@@ -8,4 +8,5 @@ module ApplicationHelper
       page_name + " | " + base_title #文字列を凍結して返す
     end
   end
+  
 end
