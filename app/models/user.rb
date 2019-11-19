@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :attendances, dependent: :destroy
   
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
@@ -12,7 +13,7 @@ class User < ApplicationRecord
   validates :basic_time, presence: true
   validates :work_time, presence: true
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :password,presence: true, length: { minimum: 6 }, allow_nil: true
  
   def User.digest(string)
    cost =
